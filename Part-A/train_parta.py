@@ -9,10 +9,24 @@ import random
 import pytorch_lightning as pl
 import wandb
 from pytorch_lightning.loggers import WandbLogger
+from arguments_a import *
 
+
+args = parsArg()
+key = '90512e34eff1bdddba0f301797228f7b64f546fc'
+batch_size = args.batch_size
+activation_type = args.activation
+use_batch_norm = args.use_batch_norm
+augment_data = args.augment_data
+layer_filters = args.filter_organization
+learning_rate = args.learning_rate
+dropout_rate = args.dropout_rate
+filter_size = args.kernl
+dense_neurons = args.dense_neurons
+epochs = args.epochs
+wandb.login(key = key)
+print(layer_filters)
 """#Importing Dataset"""
-
-# Commented out IPython magic to ensure Python compatibility.
 # %%capture
 # !curl -SL https://storage.googleapis.com/wandb_datasets/nature_12K.zip > nature_12K.zip
 # !unzip nature_12K.zip
@@ -22,7 +36,7 @@ test_dir='inaturalist_12K/val/'
 categories=['Amphibia','Animalia','Arachnida','Aves','Fungi','Insecta','Mammalia','Mollusca','Plantae','Reptilia']
 
 """#Data Pre-processing"""
-
+#Ensuring equal representation of each class in the validation set
 def load_and_split_data(directory, validation_ratio=0.2):
     #Load the full dataset
     full_dataset = datasets.ImageFolder(root=directory)
@@ -56,7 +70,7 @@ def load_and_split_data(directory, validation_ratio=0.2):
 
 train_dataset, val_dataset = load_and_split_data(train_dir)
 
-def initialize_data_loaders(train_dataset, val_dataset, augment_data, batch_size=64, resize_dim=224):
+def initialize_data_loaders(train_dataset, val_dataset, augment_data, batch_size, resize_dim=224):
     """
     Prepares and returns DataLoader instances for training and validation data sets.
 
@@ -96,7 +110,7 @@ def initialize_data_loaders(train_dataset, val_dataset, augment_data, batch_size
     return train_loader, val_loader
 
 #Initialize DataLoader for test dataset
-def create_test_loader(test_dir, batch_size=64, resize_dim=224):
+def create_test_loader(test_dir, batch_size, resize_dim=224):
     test_transforms = transforms.Compose([
         transforms.Resize((resize_dim, resize_dim)),
         transforms.ToTensor(),
@@ -109,7 +123,7 @@ def create_test_loader(test_dir, batch_size=64, resize_dim=224):
     return test_loader
 
 # Create Test DataLoader
-test_loader = create_test_loader(test_dir)
+test_loader = create_test_loader(test_dir, batch_size=batch_size)
 
 """# CNN Model"""
 
@@ -249,29 +263,36 @@ class ImageClassifier(pl.LightningModule):
 
 wandb.login(key= "90512e34eff1bdddba0f301797228f7b64f546fc")
 
-wandb.init(project='DL_Assignment_2_A', entity='cs22s027')
-
-config = {"learning_rate": 0.001, "activation_type": "Mish", "use_batch_norm": "No", "augment_data": "Yes", "layer_filters": [128,64,32,64,128], "dropout_rate": 0.3, "filter_size": 3, "dense_neurons": 128, "epochs": 8}
 # Initialize your model with hyperparameters from wandb
-run=wandb.init(config=config,project="DL_Assignment_2_A")
-wandb.run.name = 'lr_' + str(run.config.learning_rate) + '_act_' + str(run.config.activation_type) + '_bn_' + str(run.config.use_batch_norm) + '_augment_' + run.config.augment_data + '_lf_' + str(
-        run.config.layer_filters) + '_kernel_' + str(run.config.filter_size) + '_dp_' + str(run.config.dropout_rate) + '_dn_' + str(run.config.dense_neurons) + '_epoch_' + str(run.config.epochs)
-
+config = {
+    "learning_rate": args.learning_rate,
+    "activation_type": args.activation,
+    "use_batch_norm": args.use_batch_norm,
+    "augment_data": args.augment_data,
+    "layer_filters": args.filter_organization,
+    "dropout_rate": args.dropout_rate,
+    "filter_size": args.kernel,
+    "dense_neurons": args.dense_neurons,
+    "epochs": args.epochs
+}
+run = wandb.init(config=config, project=args.wandb_project, entity=args.wandb_entity)
 
 model = ImageClassifier(
-    learning_rate=run.config.learning_rate,
-    activation_type=run.config.activation_type,
-    use_batch_norm=run.config.use_batch_norm,
-    augment_data=run.config.augment_data,
-    layer_filters=run.config.layer_filters,
-    dropout_rate=run.config.dropout_rate,
-    filter_size=run.config.filter_size,
-    dense_neurons = run.config.dense_neurons
-)
+    learning_rate=learning_rate,
+    activation_type=activation_type,
+    use_batch_norm=use_batch_norm,
+    augment_data=augment_data,
+    layer_filters=layer_filters,
+    dropout_rate=dropout_rate,
+    filter_size=filter_size,
+    dense_neurons=dense_neurons
+) 
 wandb_logger = WandbLogger()
+wandb.run.name = 'lr_' + str(learning_rate) + '_act_' + str(activation_type) + '_bn_' + str(use_batch_norm) + '_augment_' + str(augment_data) + '_lf_' + str(
+            layer_filters) + '_kernel_' + str(filter_size) + '_dp_' + str(dropout_rate) + '_dn_' + str(dense_neurons) + '_epoch_' + str(epochs)
 
-trainer = pl.Trainer(max_epochs=run.config.epochs, accelerator="gpu", devices=1)
-train_loader, val_loader = initialize_data_loaders(train_dataset, val_dataset, augment_data = run.config.augment_data)
+trainer = pl.Trainer(max_epochs=epochs, accelerator="gpu", devices=1)
+train_loader, val_loader = initialize_data_loaders(train_dataset, val_dataset, augment_data = augment_data, batch_size=batch_size)
 trainer.fit(model, train_loader, val_loader)
 #Printing accruacy and loss for training and validation datasets
 train_loss = trainer.logged_metrics['train_loss']
