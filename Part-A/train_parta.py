@@ -25,7 +25,7 @@ filter_size = args.kernl
 dense_neurons = args.dense_neurons
 epochs = args.epochs
 wandb.login(key = key)
-print(layer_filters)
+
 """#Importing Dataset"""
 # %%capture
 # !curl -SL https://storage.googleapis.com/wandb_datasets/nature_12K.zip > nature_12K.zip
