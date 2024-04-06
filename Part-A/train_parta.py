@@ -261,7 +261,6 @@ class ImageClassifier(pl.LightningModule):
                    'train_loss': training_result[0].item(),
                    'epoch': self.current_epoch})
 
-wandb.login(key= "90512e34eff1bdddba0f301797228f7b64f546fc")
 
 # Initialize your model with hyperparameters from wandb
 config = {
