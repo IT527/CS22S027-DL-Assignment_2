@@ -13,7 +13,7 @@ def parsArg():
     parser.add_argument('-we', '--wandb_entity', default='cs22s027', type=str, help='WandB Entity used to track experiments in the Weights & Biases dashboard.')
     parser.add_argument('-e', '--epochs', default=8, type=int, help='Number of epochs to train neural network.')
     parser.add_argument('-b', '--batch_size', default=64, type=int, help='Batch size used to train neural network.')
-    parser.add_argument('-a', '--activation', default='Mish', type=str, choices=['Mish', 'Relu', 'Gelu', 'Silu'], help='Activation function to be used.')
+    parser.add_argument('-a', '--activation', default='Mish', type=str, choices=['Mish', 'ReLU', 'SiLU', 'GELU'], help='Activation function to be used.')
     parser.add_argument('-ubn', '--use_batch_norm', default='No', type=str, choices=['Yes', 'No'], help='Whether to use batch normalization.')
     parser.add_argument('-ad', '--augment_data', default='Yes', type=str, choices=['Yes', 'No'], help='Whether to add data augmentation.')
     parser.add_argument('-fo', '--filter_organization', default=[128,64,32,64,128], type=parse_int_list, help='Number of filters in each layer as comma-separated values e.g., 128,64,...')
