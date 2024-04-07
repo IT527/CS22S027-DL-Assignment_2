@@ -9,7 +9,7 @@ def parsArg():
     parser = argparse.ArgumentParser(description="Image Classifier CNN.")
 
     # Add arguments to the parser
-    parser.add_argument('-wp', '--wandb_project', default='myprojectname', type=str, help='Project name used to track experiments in Weights & Biases dashboard')
+    parser.add_argument('-wp', '--wandb_project', default='image_classifier', type=str, help='Project name used to track experiments in Weights & Biases dashboard')
     parser.add_argument('-we', '--wandb_entity', default='cs22s027', type=str, help='WandB Entity used to track experiments in the Weights & Biases dashboard.')
     parser.add_argument('-e', '--epochs', default=8, type=int, help='Number of epochs to train neural network.')
     parser.add_argument('-b', '--batch_size', default=64, type=int, help='Batch size used to train neural network.')
