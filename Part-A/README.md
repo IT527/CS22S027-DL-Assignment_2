@@ -64,6 +64,10 @@ On execution of the file as shown above, loss and accuracies for the train, vali
 To access plots in wandb, ensure to replace the given key with your wandb API key.</br>
 
 
+### Adding new activation function and optimiser
+To add any new optimiser, you can create add a code for it in function 'choose_activation()' within class 'ImageClassifier'.
+Similarly, any new optimizer function can be added within the function 'configure_optimizers()'.
+
 ### Additional Resources and help
 Included in the project is DL_Assignment_2_A.ipynb, compatible with Jupyter Notebook or Google Colab. It encompasses CNN code, sweep operations, and logging utilities like test prediction sample images. For tailored runs, you may need to adjust configurations and uncomment sections in the notebook to log specific metrics or plots. The notebook serves as a practical reference for understanding the project's workflow. </br>
 All the plots are generated and logged to wandb using this file only, while for a new configuration one can run the train_parta.py file as shown above.
