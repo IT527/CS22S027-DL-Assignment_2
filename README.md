@@ -1,5 +1,5 @@
 
-# CS6910: Deep Learning Assignmnet 1, Jan-May 2024
+# CS6910: Deep Learning Assignmnet 2, Jan-May 2024
 
 Details
 
