@@ -50,7 +50,7 @@ The possible arguments and respective values for 'OPTIONS' are shown in the tabl
 | `-b`, `--batch_size` | 64 | Batch size used to train neural network. | 
 | `-ad`, `--augment_data` | Yes | choices:  ["Yes", "No"] |
 | `-lr`, `--learning_rate` | 0.001 | Learning rate used to optimize model parameters | 
-| `-m`, `--momentum` | 0.3 | Momentum used in momentum based SGD optimizer to optimize model parameters | 
+| `-m`, `--momentum` | 0.9 | Momentum used in momentum based SGD optimizer to optimize model parameters | 
 
 
 An example run with epochs 5 and applying data augmentation : `python train_partb.py --epochs 5 --augment_data "Yes"`
