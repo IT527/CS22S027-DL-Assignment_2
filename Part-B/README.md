@@ -69,7 +69,8 @@ Included in the project is DL_Assignment_2_B.ipynb, compatible with Jupyter Note
 All the plots are generated and logged to wandb using this file only, while for a new configuration one can run the train_partb.py file as shown above.
 </br>
 </br>
-The sweep details for choosing the hyperparameters, runs, sample images, and related plots can be viewed at: ``
+The sweep details for choosing the hyperparameters, runs, sample images, and related plots can be viewed at: 
+https://wandb.ai/cs22s027/Report_DL_2/reports/CS6910-Assignment-2--Vmlldzo3NDM1MjM1
 
 
 
