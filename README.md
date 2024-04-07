@@ -17,6 +17,6 @@ In Part-A of project, there is an implementation of a convolution neural network
 While, in Part-B, we finetune an already pre-defined model for our dataset. 
 </br>
 </br>
-The respective two folders contain the python script along with other necessary files required and readme file for execution.
+The respective two folders contain the python script along with other necessary files required and respective readme file for execution.
 
 The sweep details for choosing the hyperparameters, runs, sample test prediction images, and related plots can be viewed at:
