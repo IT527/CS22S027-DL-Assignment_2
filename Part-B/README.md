@@ -62,7 +62,7 @@ To access plots in wandb, ensure to replace the given key with your wandb API ke
 
 
 ### Adding new optimiser
-To add any new optimizer function, it can be added within the function 'configure_optimizers()' within class 'ImageClassifier'.
+To add any new optimizer function, it can be added within the function 'configure_optimizers()' within class 'ViTFinetuner'.
 
 ### Additional Resources and help
 Included in the project is DL_Assignment_2_B.ipynb, compatible with Jupyter Notebook or Google Colab. It encompasses CNN code, and logging on to utilities like test prediction sample images. For tailored runs, you may need to adjust configurations and uncomment sections in the notebook to log specific metrics or plots. The notebook serves as a practical reference for understanding the project's workflow. </br>
