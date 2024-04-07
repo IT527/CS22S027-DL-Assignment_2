@@ -12,7 +12,7 @@ This project is an implementation of a convolution neural network from scratch u
  - python
  - wandb library
  - torch library
- - torchvision library (
+ - torchvision library 
  - pytorch_lightning library
  - matplotlib (Optional: if you want to plot grid of sample test prediction)
 
