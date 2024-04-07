@@ -19,7 +19,6 @@ def parsArg():
     parser.add_argument('-fo', '--filter_organization', default=[128,64,32,64,128], type=parse_int_list, help='Number of filters in each layer as comma-separated values e.g., 128,64,...')
     parser.add_argument('-lr', '--learning_rate', default=0.001, type=float, help='Learning rate used to optimize model parameters.')
     parser.add_argument('-dr', '--dropout_rate', default=0.3, type=float, help='Dropout rate used to train neural network.')
-    parser.add_argument('-k', '--kernel', default=3, type=int, help='Size of kernel.')
     parser.add_argument('-dn', '--dense_neurons', default=128, type=int, help='Number of neurons in dense layer.')
     parser.add_argument('-kn', '--kernl', default=3, type=int, help='Size of kernel.')
     # Parse the arguments
