@@ -37,7 +37,7 @@ Alternatively, you can download the entire repository as a .zip file from the Do
 ### Usage
 To run the python script, navigate to the project directory and run: `python train_partb.py [OPTIONS]`
 </br>
-Ensure to connect to GPU to run, in case using CPU, replace 'gpu' by 'cpu' in line 186 on python script.
+Ensure to connect to GPU to run, in case using CPU, replace 'gpu' by 'cpu' in line 186 of python script.
 </br>
 The 'OPTIONS' can take different values for parameters to select dataset, modify network architecture, select activation function and many more.</br>
 The possible arguments and respective values for 'OPTIONS' are shown in the table below:</br>
