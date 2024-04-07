@@ -18,4 +18,4 @@ While, in Part-B, we finetune an already pre-defined model for our dataset.
 </br>
 The respective two folders contain the python script along with other necessary files required and readme file for execution.
 
-The sweep details for choosing the hyperparameters, runs, sample images, and related plots can be viewed at:
+The sweep details for choosing the hyperparameters, runs, sample test prediction images, and related plots can be viewed at:
