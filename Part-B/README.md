@@ -5,7 +5,7 @@ Name: Ishaan Taneja </br>
 Roll No.: CS22S027 </br>
 </br>
 
-This project is fine-tuning an already pre-defined convolution neural network using Python. We are training only the last layer, keeing all other layers' weight frozen. It is designed to be flexible, allowing adjustments to various parameters such as learning rate for optimizer function, momentum, batch size, and experiment tracking using wandb.
+This project is fine-tuning an already pre-defined convolution neural network using Python. We are training only the last layer, keeping all other layers' weight frozen. It is designed to be flexible, allowing adjustments to various parameters such as learning rate for optimizer function, momentum, batch size, and experiment tracking using wandb.
 
 
 ### Dependencies
@@ -65,7 +65,7 @@ To access plots in wandb, ensure to replace the given key with your wandb API ke
 To add any new optimizer function, it can be added within the function 'configure_optimizers()' within class 'ImageClassifier'.
 
 ### Additional Resources and help
-Included in the project is DL_Assignment_2_B.ipynb, compatible with Jupyter Notebook or Google Colab. It encompasses CNN code, and logging utilities like test prediction sample images. For tailored runs, you may need to adjust configurations and uncomment sections in the notebook to log specific metrics or plots. The notebook serves as a practical reference for understanding the project's workflow. </br>
+Included in the project is DL_Assignment_2_B.ipynb, compatible with Jupyter Notebook or Google Colab. It encompasses CNN code, and logging on to utilities like test prediction sample images. For tailored runs, you may need to adjust configurations and uncomment sections in the notebook to log specific metrics or plots. The notebook serves as a practical reference for understanding the project's workflow. </br>
 All the plots are generated and logged to wandb using this file only, while for a new configuration one can run the train_partb.py file as shown above.
 </br>
 </br>
