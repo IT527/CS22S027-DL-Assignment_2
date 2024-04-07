@@ -1,6 +1,3 @@
-D
-
-
 # CS22S027-DL-Assignment-2, Part-A
 
 ### Details
