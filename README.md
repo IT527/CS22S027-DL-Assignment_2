@@ -11,7 +11,7 @@ Roll No.: CS22S027
 There are two parts in the project "Image Classifier using CNN on iNaturalist dataset" , i.e. Part-A and Part-B. 
 </br>
 
-In Part-A of project, there is an implementation of a convolution neural network from scratch using Python. It is designed to be flexible, allowing adjustments to various parameters such as network architecture, batch_size, number of filters, kernel size, activation functions, and experiment tracking using wandb.
+In Part-A of the project, there is an implementation of a convolution neural network from scratch using Python. It is designed to be flexible, allowing adjustments to various parameters such as network architecture, batch_size, number of filters, kernel size, activation functions, and experiment tracking using wandb.
 </br>
 </br>
 While, in Part-B, we finetune an already pre-defined model for our dataset. 
