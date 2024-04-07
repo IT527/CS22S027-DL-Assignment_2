@@ -20,3 +20,5 @@ While, in Part-B, we finetune an already pre-defined model for our dataset.
 The respective two folders contain the python script along with other necessary files required and respective readme file for execution.
 
 The sweep details for choosing the hyperparameters, runs, sample test prediction images, and related plots can be viewed at:
+</br>
+https://wandb.ai/cs22s027/Report_DL_2/reports/CS6910-Assignment-2--Vmlldzo3NDM1MjM1
